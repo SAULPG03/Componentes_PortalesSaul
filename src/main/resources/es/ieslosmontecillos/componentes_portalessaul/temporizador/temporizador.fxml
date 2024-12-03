@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+<fx:root type="HBox" fx:controller="es.ieslosmontecillos.componentes_portalessaul.temporizador.Temporizador" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="Tiempo restante:" />
+      <Label text="Label" />
+      <Label text="S" />
+   </children>
+</fx:root>

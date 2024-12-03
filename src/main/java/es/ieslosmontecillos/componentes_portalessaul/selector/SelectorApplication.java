@@ -1,6 +1,5 @@
 package es.ieslosmontecillos.componentes_portalessaul.selector;
 
-import es.ieslosmontecillos.componentes_portalessaul.SelectorDeslizamiento;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

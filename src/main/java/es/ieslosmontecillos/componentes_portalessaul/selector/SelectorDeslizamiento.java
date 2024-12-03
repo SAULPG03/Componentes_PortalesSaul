@@ -1,4 +1,4 @@
-package es.ieslosmontecillos.componentes_portalessaul;
+package es.ieslosmontecillos.componentes_portalessaul.selector;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ObjectPropertyBase;
@@ -29,7 +29,7 @@ public class SelectorDeslizamiento extends AnchorPane {
 
     public SelectorDeslizamiento() {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                getClass().getResource("selector/selector_deslizamiento.fxml"));
+                getClass().getResource("selector_deslizamiento.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
