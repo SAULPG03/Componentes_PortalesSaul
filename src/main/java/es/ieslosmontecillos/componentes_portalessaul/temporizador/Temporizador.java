@@ -5,58 +5,74 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
+import java.io.IOException;
+
 public class Temporizador extends HBox {
     @FXML
-    Label label1;
+    private Label label1;
     @FXML
-    Label label_tiempo;
+    private Label label_tiempo;
     @FXML
-    Label label3;
+    private Label label3;
+
     private int tiempo;
     private Timeline timeline;
     private EventHandler<ActionEvent> onFinCuentaAtras;
 
-    public Temporizador(Label label_tiempo, int tiempo_inicial) {
-        this.label1.setText( "Tiempo Transcurrido: ");
-        this.label3.setText( " s");
-        this.label_tiempo = label_tiempo;
-        this.tiempo = tiempo_inicial;
-        this.label_tiempo.setText(String.valueOf(tiempo));
+    public Temporizador(int tiempoInicial) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Temporizador.fxml"));
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
 
-        KeyFrame kf = new KeyFrame(Duration.seconds(1), e -> actualizar_tiempo());
+        try {
+            fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Verifica si los nodos @FXML han sido inicializados correctamente
+        if (label_tiempo == null) {
+            throw new IllegalStateException("label_tiempo no está inicializado. Revisa el archivo FXML.");
+        }
+
+        this.tiempo = tiempoInicial;
+        label_tiempo.setText(String.valueOf(tiempo));
+
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), e -> actualizarTiempo());
         timeline = new Timeline(kf);
         timeline.setCycleCount(Timeline.INDEFINITE);
-
     }
 
     public void iniciar() {
         timeline.play();
     }
 
-    public void actualizar_tiempo(){
+    private void actualizarTiempo() {
         tiempo--;
         label_tiempo.setText(String.valueOf(tiempo));
-        if(tiempo<=0){
+        if (tiempo <= 0) {
             timeline.stop();
             if (onFinCuentaAtras != null) {
                 onFinCuentaAtras.handle(new ActionEvent());
             }
         }
-
     }
+
     public void setOnFinCuentaAtras(EventHandler<ActionEvent> onFinCuentaAtras) {
         this.onFinCuentaAtras = onFinCuentaAtras;
     }
+
     public int getTiempo() {
         return tiempo;
     }
+
     public void setTiempo(int tiempo) {
         this.tiempo = tiempo;
         label_tiempo.setText(String.valueOf(tiempo));
     }
-
 }

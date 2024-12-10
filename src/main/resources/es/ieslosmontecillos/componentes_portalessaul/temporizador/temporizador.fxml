@@ -3,10 +3,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 
-<fx:root type="HBox" fx:controller="es.ieslosmontecillos.componentes_portalessaul.temporizador.Temporizador" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="HBox" fx:controller="es.ieslosmontecillos.componentes_portalessaul.temporizador.Temporizador"
+         xmlns="http://javafx.com/javafx/23"
+         xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="Tiempo restante:" />
-      <Label text="Label" />
-      <Label text="S" />
+      <Label fx:id="label1" text="Tiempo restante:" />
+      <Label fx:id="label_tiempo" text="0" />
+      <Label fx:id="label3" text="s" />
    </children>
 </fx:root>
+
+
