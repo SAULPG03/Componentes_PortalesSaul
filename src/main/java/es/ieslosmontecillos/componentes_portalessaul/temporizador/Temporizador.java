@@ -14,25 +14,25 @@ import java.io.IOException;
 
 public class Temporizador extends HBox {
     @FXML
-    private Label label1;
+    private Label label1=new Label();
     @FXML
-    private Label label_tiempo;
+    private Label label_tiempo=new Label();
     @FXML
-    private Label label3;
+    private Label label3=new Label();
 
     private int tiempo;
     private Timeline timeline;
     private EventHandler<ActionEvent> onFinCuentaAtras;
 
     public Temporizador(int tiempoInicial) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Temporizador.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("temporizador.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
         try {
             fxmlLoader.load();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
         // Verifica si los nodos @FXML han sido inicializados correctamente
