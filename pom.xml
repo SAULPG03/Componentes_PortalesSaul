@@ -62,7 +62,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                es.ieslosmontecillos.componentes_portalessaul/es.ieslosmontecillos.componentes_portalessaul.HelloApplication
+                                es.ieslosmontecillos.componentes_portalessaul/es.ieslosmontecillos.componentes_portalessaul.temporizador.TemporizadorApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
